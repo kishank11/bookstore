@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const config = require('config')
+
 const app = express()
 module.exports = app
 
@@ -8,9 +8,9 @@ module.exports = app
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 
-const db = config.get('mongoURI')
+
 mongoose.
-    connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+    connect("mongodb+srv://kishank11:Kishan@cluster0.deg3l.mongodb.net/bookstore?retryWrites=true&w=majority")
     .then(() => console.log('MongoDb connected...'))
     .catch(err => console.log(err))
 
